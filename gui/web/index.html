@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Acme Analytics - Speech Analytics Preprocessor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="app-toolbar">
+        <button id="btn-add-files">Add CSV files</button>
+        <button id="btn-clear-all">Clear all</button>
+    </header>
+
+    <main class="app-main">
+        <section class="file-list-section">
+            <p id="file-list-empty">No files added yet. Click "Add CSV files" above to begin.</p>
+            <ul id="file-list"></ul>
+        </section>
+
+        <section id="preview-pane">
+            <p id="preview-caption"></p>
+            <p id="preview-empty">Select a valid CSV file from the list to preview changes.</p>
+            <div class="preview-block">
+                <h2 class="preview-heading">SOURCE</h2>
+                <div id="preview-source-scroll" class="table-scroll">
+                    <table id="preview-source-table"></table>
+                </div>
+            </div>
+            <div class="preview-block">
+                <h2 class="preview-heading">TRANSFORMED</h2>
+                <div id="preview-transformed-scroll" class="table-scroll">
+                    <table id="preview-transformed-table"></table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="phase27-strip">
+        <fieldset id="mode-toggle">
+            <legend>Output Mode</legend>
+            <label>
+                <input type="radio" name="output-mode" id="mode-separate" checked>
+                Separate files
+            </label>
+            <label>
+                <input type="radio" name="output-mode" id="mode-combined">
+                Combined file
+            </label>
+        </fieldset>
+
+        <div class="output-path-group">
+            <label for="output-path">Output folder:</label>
+            <input id="output-path" type="text" readonly value="" placeholder="Choose a folder or add files to use default processed/ folder">
+            <button id="btn-change-output">Change</button>
+        </div>
+
+        <div id="combined-name-group" class="combined-name-group">
+            <label for="combined-name">Combined file name:</label>
+            <input id="combined-name" type="text" value="combined-dashboard-ready.csv">
+        </div>
+
+        <button id="btn-convert">Convert</button>
+        <p id="phase27-note" class="run-banner"></p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

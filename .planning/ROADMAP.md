@@ -7,7 +7,7 @@ This roadmap executes a 1:1 functional clone and corporate sanitization of the r
 ## Phases
 
 - [x] **Phase 1: Project Scaffolding & Corporate Sanitization Core** - Base repository structure, sanitization tokens, synthetic data generator, and vendor assets.
-- [ ] **Phase 2: Companion Desktop Preprocessor & Parity Testing** - Pure Python transformation core, CLI/GUI pywebview shell, PyInstaller spec, and unit/parity test suites.
+- [x] **Phase 2: Companion Desktop Preprocessor & Parity Testing** - Pure Python transformation core, CLI/GUI pywebview shell, PyInstaller spec, and unit/parity test suites.
 - [ ] **Phase 3: Client-Side Web Dashboard & Analytics** - Sanitized 4-tab dashboard UI, Chart.js visualizations, IndexedDB caching, ARIA accessibility, and NLP query sandbox.
 - [ ] **Phase 4: Power BI Export Engine & Structural Gates** - Programmatic TMDL/PBIR generator with duration-weighted DAX, drill-through page, and automated verification checks.
 - [ ] **Phase 5: Verification, Golden Parity Audit & Showcase Docs** - End-to-end testing, zero-leak sanitization audit, and production portfolio documentation.
@@ -42,8 +42,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 02-01: Implement `preprocess_core.py`, `preprocess_cli.py`, and test suite (`test_core.py`, `test_parity.py`).
-- [ ] 02-02: Implement `gui/app.py`, local GUI web assets, and `build/preprocessor.spec`.
+- [x] 02-01: Implement `preprocess_core.py`, `preprocess_cli.py`, and test suite (`test_core.py`, `test_parity.py`).
+- [x] 02-02: Implement `gui/app.py`, local GUI web assets, and `build/preprocessor.spec`.
 
 ### Phase 3: Client-Side Web Dashboard & Analytics
 **Goal**: Build the zero-auth, offline-first 4-tab speech analytics dashboard with Chart.js and IndexedDB persistence.
@@ -98,7 +98,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Project Scaffolding & Corporate Sanitization Core | 2/2 | Completed | 2026-09-17 |
-| 2. Companion Desktop Preprocessor & Parity Testing | 0/2 | Not started | - |
+| 2. Companion Desktop Preprocessor & Parity Testing | 2/2 | Completed | 2026-09-17 |
 | 3. Client-Side Web Dashboard & Analytics | 0/3 | Not started | - |
 | 4. Power BI Export Engine & Structural Gates | 0/2 | Not started | - |
 | 5. Verification, Golden Parity Audit & Showcase Docs | 0/1 | Not started | - |
