@@ -478,6 +478,26 @@
                     </label>
                 </div>
             </div>
+
+            <div>
+                <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Export Scope</label>
+                <div class="space-y-2 bg-slate-800 border border-slate-700 p-3 rounded-xl">
+                    <label class="flex items-start space-x-3 cursor-pointer">
+                        <input type="radio" id="exportModeFull" name="exportMode" value="full" checked class="export-mode-radio mt-0.5 accent-sky-500 cursor-pointer">
+                        <div class="text-xs">
+                            <span class="font-bold text-slate-100 block">Full Dataset</span>
+                            <span class="text-slate-400">Export every loaded row in the dataset</span>
+                        </div>
+                    </label>
+                    <label class="flex items-start space-x-3 cursor-pointer">
+                        <input type="radio" id="exportModeFiltered" name="exportMode" value="filtered" class="export-mode-radio mt-0.5 accent-sky-500 cursor-pointer">
+                        <div class="text-xs">
+                            <span class="font-bold text-slate-100 block">Filtered Rows Only</span>
+                            <span class="text-slate-400">Export only rows matching active dashboard filters</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -646,7 +666,7 @@
             const qVal = document.getElementById('filterQueue').value;
             const cVal = document.getElementById('filterCategory').value;
 
-            globalFilteredData = globalCsvData.filter(row => {
+            const filtered = globalCsvData.filter(row => {
                 const date = row.Timestamp.split(' ')[0];
                 if (dStart && date < dStart) return false;
                 if (dEnd && date > dEnd) return false;
@@ -654,6 +674,7 @@
                 if (cVal && row.Primary_Category !== cVal) return false;
                 return true;
             });
+            globalFilteredData = filtered;
 
             document.getElementById('filteredRowCount').innerText = globalFilteredData.length.toLocaleString();
             document.getElementById('totalRowCount').innerText = globalCsvData.length.toLocaleString();
@@ -905,37 +926,75 @@
             }
         }
 
-        // Power BI Export Button Interaction Handler
-        async function handlePbiExportClick() {
-            if (typeof exportPowerBIProject !== 'function') {
-                showErrorToast("Power BI Export Engine is loading or not available.");
-                return;
-            }
+        function getSelectedExportMode() {
+            const checkedRadio = document.querySelector('.export-mode-radio:checked');
+            return (checkedRadio && checkedRadio.value) ? checkedRadio.value : 'full';
+        }
+
+        function setPbiExportButtonState(state) {
             const btn = document.getElementById('pbiExportBtn');
             const idle = document.getElementById('pbiExportIconIdle');
             const busy = document.getElementById('pbiExportIconBusy');
             const done = document.getElementById('pbiExportIconDone');
-
-            idle.classList.add('hidden');
-            busy.classList.remove('hidden');
-            btn.disabled = true;
-
-            try {
-                const rowsToExport = (globalFilteredData && globalFilteredData.length > 0) ? globalFilteredData : globalCsvData;
-                await exportPowerBIProject(rowsToExport);
+            if (state === 'loading') {
+                idle.classList.add('hidden');
+                busy.classList.remove('hidden');
+                done.classList.add('hidden');
+                btn.disabled = true;
+            } else if (state === 'success') {
+                idle.classList.add('hidden');
                 busy.classList.add('hidden');
                 done.classList.remove('hidden');
-                setTimeout(() => {
-                    done.classList.add('hidden');
-                    idle.classList.remove('hidden');
-                    btn.disabled = false;
-                }, 2500);
-            } catch (err) {
-                console.error("Export error:", err);
-                busy.classList.add('hidden');
-                idle.classList.remove('hidden');
                 btn.disabled = false;
-                showErrorToast("Export error: " + (err.message || err));
+            } else {
+                idle.classList.remove('hidden');
+                busy.classList.add('hidden');
+                done.classList.add('hidden');
+                btn.disabled = false;
+            }
+        }
+
+        // Power BI Export Button Interaction Handler
+        async function handlePbiExportClick() {
+            if (!globalCsvData || globalCsvData.length === 0) {
+                showErrorToast("Load a dataset before exporting to Power BI.");
+                return;
+            }
+
+            const exportMode = getSelectedExportMode();
+            const exportRows = (exportMode === 'filtered') ? globalFilteredData : globalCsvData;
+
+            if (exportMode === 'filtered' && (!exportRows || exportRows.length === 0)) {
+                showErrorToast("No rows match the active filters — nothing to export.");
+                return;
+            }
+
+            const startedAt = performance.now();
+            setPbiExportButtonState('loading');
+
+            try {
+                const blob = await generatePowerBIExport(exportRows, exportMode);
+                const elapsed = performance.now() - startedAt;
+                if (elapsed < 500) {
+                    await new Promise(resolve => setTimeout(resolve, 500 - elapsed));
+                }
+
+                const filename = buildExportFilename(exportMode);
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+
+                setPbiExportButtonState('success');
+                setTimeout(() => setPbiExportButtonState('idle'), 2500);
+            } catch (err) {
+                console.error('[powerbi export] failed:', err);
+                showErrorToast('Power BI export failed. See console for details.');
+                setPbiExportButtonState('idle');
             }
         }
 

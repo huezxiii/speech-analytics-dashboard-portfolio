@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "SpeechAnalytics"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "b7c1f2a4-3d58-4e6b-9a02-5c8e1d7f40b3"
+  }
+}

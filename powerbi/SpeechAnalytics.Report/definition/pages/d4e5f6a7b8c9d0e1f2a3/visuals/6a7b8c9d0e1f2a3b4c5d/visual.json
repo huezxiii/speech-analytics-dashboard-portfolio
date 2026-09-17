@@ -1,0 +1,192 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "6a7b8c9d0e1f2a3b4c5d",
+  "position": {
+    "x": 24,
+    "y": 176,
+    "z": 11,
+    "width": 1872,
+    "height": 880,
+    "tabOrder": 11
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calls"
+                    }
+                  },
+                  "Property": "Contact_ID"
+                }
+              },
+              "queryRef": "Calls.Contact_ID",
+              "nativeQueryRef": "Contact_ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calls"
+                    }
+                  },
+                  "Property": "Agent_ID"
+                }
+              },
+              "queryRef": "Calls.Agent_ID",
+              "nativeQueryRef": "Agent_ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calls"
+                    }
+                  },
+                  "Property": "Timestamp"
+                }
+              },
+              "queryRef": "Calls.Timestamp",
+              "nativeQueryRef": "Timestamp"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calls"
+                    }
+                  },
+                  "Property": "Queue_Name"
+                }
+              },
+              "queryRef": "Calls.Queue_Name",
+              "nativeQueryRef": "Queue_Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calls"
+                    }
+                  },
+                  "Property": "Primary_Category"
+                }
+              },
+              "queryRef": "Calls.Primary_Category",
+              "nativeQueryRef": "Primary_Category"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calls"
+                    }
+                  },
+                  "Property": "Call_Duration (s)"
+                }
+              },
+              "queryRef": "Calls.Call_Duration (s)",
+              "nativeQueryRef": "Call_Duration (s)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calls"
+                    }
+                  },
+                  "Property": "Silence_Duration (s)"
+                }
+              },
+              "queryRef": "Calls.Silence_Duration (s)",
+              "nativeQueryRef": "Silence_Duration (s)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calls"
+                    }
+                  },
+                  "Property": "Agent_Quality"
+                }
+              },
+              "queryRef": "Calls.Agent_Quality",
+              "nativeQueryRef": "Agent_Quality"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calls"
+                    }
+                  },
+                  "Property": "Customer_Sentiment"
+                }
+              },
+              "queryRef": "Calls.Customer_Sentiment",
+              "nativeQueryRef": "Customer_Sentiment"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calls"
+                    }
+                  },
+                  "Property": "Compliance_Risk"
+                }
+              },
+              "queryRef": "Calls.Compliance_Risk",
+              "nativeQueryRef": "Compliance_Risk"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calls"
+                    }
+                  },
+                  "Property": "FCR_Flag"
+                }
+              },
+              "queryRef": "Calls.FCR_Flag",
+              "nativeQueryRef": "FCR_Flag"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calls"
+                    }
+                  },
+                  "Property": "Call_Summary_Transcript"
+                }
+              },
+              "queryRef": "Calls.Call_Summary_Transcript",
+              "nativeQueryRef": "Call_Summary_Transcript"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,12 @@
+relationship cdb6e6a9-c9d1-42b9-b9e0-484a1bc7e123
+	fromColumn: Calls.Silence_Bucket
+	toColumn: SilenceBuckets.Bucket_Label
+
+relationship f3a7c21d-9b48-4e05-a6d2-71c8ef049b3a
+	fromColumn: Calls.Call_Date
+	toColumn: DateTable.Date
+	crossFilteringBehavior: oneDirection
+
+relationship 34f0a1b2-c3d4-4e56-9f78-0a1b2c3d4e5f
+	fromColumn: Calls.Empathy_Bucket
+	toColumn: EmpathyBuckets.Bucket_Label

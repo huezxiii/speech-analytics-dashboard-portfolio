@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "5f6a7b8c9d0e1f2a3b4c",
+  "position": {
+    "x": 24,
+    "y": 88,
+    "z": 10,
+    "width": 1872,
+    "height": 72,
+    "tabOrder": 10
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "horizontalTextAlignment": "left",
+                "textRuns": [
+                  {
+                    "value": "Call Detail displays unaggregated call transcripts and agent identifiers verbatim. Page hiding is navigation-only, not an access boundary; this report has no row-level security (RLS), and all data is accessible to anyone with file access.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "20px",
+                      "color": "#F8F8F8"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

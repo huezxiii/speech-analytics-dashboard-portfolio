@@ -1,0 +1,336 @@
+table Calls
+
+	column Timestamp
+		dataType: dateTime
+		sourceColumn: Timestamp
+		summarizeBy: none
+
+	/// Unique call contact identifier surfaced on Call Detail drill-through table and bound as drill-through field
+	column Contact_ID
+		dataType: string
+		sourceColumn: Contact_ID
+		summarizeBy: none
+
+	column Agent_ID
+		dataType: string
+		sourceColumn: Agent_ID
+		summarizeBy: none
+
+	column Queue_Name
+		dataType: string
+		sourceColumn: Queue_Name
+		summarizeBy: none
+
+	column 'Call_Duration (s)'
+		dataType: int64
+		sourceColumn: "Call_Duration (s)"
+		summarizeBy: average
+
+	column 'Silence_Duration (s)'
+		dataType: int64
+		sourceColumn: "Silence_Duration (s)"
+		summarizeBy: average
+
+	/// superseded by duration-weighted Avg Silence % (EXT-02, Phase 32)
+	column Silence_Pct
+		dataType: double
+		isHidden
+		sourceColumn: Silence_Pct
+		summarizeBy: average
+
+	/// Surfaced on Compliance & Coaching page as the basis of the Avg Max Agitation measure plotted by lineAgitationCurve
+	column Max_Agitation_Score
+		dataType: int64
+		sourceColumn: Max_Agitation_Score
+		summarizeBy: average
+
+	column Primary_Category
+		dataType: string
+		sourceColumn: Primary_Category
+		summarizeBy: none
+
+	column Customer_Sentiment
+		dataType: int64
+		sourceColumn: Customer_Sentiment
+		summarizeBy: average
+
+	column Agent_Quality
+		dataType: int64
+		sourceColumn: Agent_Quality
+		summarizeBy: average
+
+	column Compliance_Risk
+		dataType: string
+		sourceColumn: Compliance_Risk
+		summarizeBy: none
+		sortByColumn: Compliance_Risk_Order
+
+	/// Surfaced on Compliance & Coaching page for Avg Empathy Score measure and Empathy_Bucket calculated column
+	column Empathy_Score
+		dataType: int64
+		sourceColumn: Empathy_Score
+		summarizeBy: average
+
+	column FCR_Flag
+		dataType: int64
+		sourceColumn: FCR_Flag
+		summarizeBy: none
+
+	/// Verbatim call transcript text surfaced on Call Detail drill-through table; unaggregated text with no RLS boundary
+	column Call_Summary_Transcript
+		dataType: string
+		sourceColumn: Call_Summary_Transcript
+		summarizeBy: none
+
+	column Call_Date
+		dataType: dateTime
+		sourceColumn: Call_Date
+		summarizeBy: none
+
+	/// Sort order helper for Compliance_Risk with no direct visual use
+	column Compliance_Risk_Order
+		dataType: int64
+		isHidden
+		sourceColumn: Compliance_Risk_Order
+		summarizeBy: none
+
+	column Silence_Bucket = SWITCH(TRUE(), 'Calls'[Silence_Duration (s)] < 15, "0-15", 'Calls'[Silence_Duration (s)] < 30, "15-30", 'Calls'[Silence_Duration (s)] < 60, "30-60", 'Calls'[Silence_Duration (s)] < 120, "60-120", "120+")
+		dataType: string
+		summarizeBy: none
+		sortByColumn: Silence_Bucket_Order
+
+	/// Sort order helper for Silence_Bucket with no direct visual use
+	column Silence_Bucket_Order = SWITCH(TRUE(), 'Calls'[Silence_Duration (s)] < 15, 1, 'Calls'[Silence_Duration (s)] < 30, 2, 'Calls'[Silence_Duration (s)] < 60, 3, 'Calls'[Silence_Duration (s)] < 120, 4, 5)
+		dataType: int64
+		isHidden
+		summarizeBy: none
+
+	column Empathy_Bucket = SWITCH(TRUE(), 'Calls'[Empathy_Score] <= 20, "0-20", 'Calls'[Empathy_Score] <= 40, "21-40", 'Calls'[Empathy_Score] <= 60, "41-60", 'Calls'[Empathy_Score] <= 80, "61-80", "81-100")
+		dataType: string
+		summarizeBy: none
+		sortByColumn: Empathy_Bucket_Order
+
+	/// Sort order helper for Empathy_Bucket with no direct visual use
+	column Empathy_Bucket_Order = SWITCH(TRUE(), 'Calls'[Empathy_Score] <= 20, 1, 'Calls'[Empathy_Score] <= 40, 2, 'Calls'[Empathy_Score] <= 60, 3, 'Calls'[Empathy_Score] <= 80, 4, 5)
+		dataType: int64
+		isHidden
+		summarizeBy: none
+
+	measure 'Total Calls' = COUNTROWS('Calls')
+		formatString: #,##0
+
+	measure 'Avg Handle Time (s)' = DIVIDE(SUMX('Calls', 'Calls'[Call_Duration (s)]), COUNTROWS('Calls'))
+		formatString: #,##0.0"s"
+
+	measure 'FCR Rate' = AVERAGE('Calls'[FCR_Flag])
+		formatString: 0.0%
+
+	measure 'Avg Silence %' = DIVIDE(SUMX('Calls', 'Calls'[Silence_Duration (s)]), SUMX('Calls', 'Calls'[Call_Duration (s)]))
+		formatString: 0.0%
+
+	measure 'Avg QA Score' = AVERAGE('Calls'[Agent_Quality])
+		formatString: 0.0
+
+	measure 'Avg Sentiment' = AVERAGE('Calls'[Customer_Sentiment])
+		formatString: +0.0;-0.0;0.0
+
+	measure 'Avg Max Agitation' = AVERAGE('Calls'[Max_Agitation_Score])
+		formatString: 0.0
+
+	measure 'Avg Empathy Score' = AVERAGE('Calls'[Empathy_Score])
+		formatString: 0.0
+
+	measure 'Compliance Risk Rate' = ```
+		DIVIDE(
+		    CALCULATE(COUNTROWS('Calls'), 'Calls'[Compliance_Risk] <> "No Risk"),
+		    COUNTROWS('Calls')
+		)
+	```
+		formatString: 0.0%
+
+	measure 'Compliance Risk Rate (All Data)' = CALCULATE([Compliance Risk Rate], ALL('Calls'))
+		formatString: 0.0%
+
+	measure 'Total Calls Delta %' = ```
+		VAR _lastDataDate = CALCULATE(MAX('Calls'[Call_Date]), ALL('Calls'))
+		VAR _minD = MIN('DateTable'[Date])
+		VAR _maxD = MIN(MAX('DateTable'[Date]), _lastDataDate)
+		VAR _n = DATEDIFF(_minD, _maxD, DAY) + 1
+		VAR _priorWindow = DATESBETWEEN('DateTable'[Date], _minD - _n, _minD - 1)
+		VAR _selection = [Total Calls]
+		VAR _prior = CALCULATE([Total Calls], _priorWindow)
+		RETURN IF(ISBLANK(_selection) || ISBLANK(_prior), BLANK(), DIVIDE(_selection - _prior, _prior))
+	```
+		formatString: +0.0%;-0.0%;0.0%
+
+	measure 'Avg Handle Time Delta %' = ```
+		VAR _lastDataDate = CALCULATE(MAX('Calls'[Call_Date]), ALL('Calls'))
+		VAR _minD = MIN('DateTable'[Date])
+		VAR _maxD = MIN(MAX('DateTable'[Date]), _lastDataDate)
+		VAR _n = DATEDIFF(_minD, _maxD, DAY) + 1
+		VAR _priorWindow = DATESBETWEEN('DateTable'[Date], _minD - _n, _minD - 1)
+		VAR _selection = [Avg Handle Time (s)]
+		VAR _prior = CALCULATE([Avg Handle Time (s)], _priorWindow)
+		RETURN IF(ISBLANK(_selection) || ISBLANK(_prior), BLANK(), DIVIDE(_selection - _prior, _prior))
+	```
+		formatString: +0.0%;-0.0%;0.0%
+
+	measure 'Avg Silence Delta pts' = ```
+		VAR _lastDataDate = CALCULATE(MAX('Calls'[Call_Date]), ALL('Calls'))
+		VAR _minD = MIN('DateTable'[Date])
+		VAR _maxD = MIN(MAX('DateTable'[Date]), _lastDataDate)
+		VAR _n = DATEDIFF(_minD, _maxD, DAY) + 1
+		VAR _priorWindow = DATESBETWEEN('DateTable'[Date], _minD - _n, _minD - 1)
+		VAR _selection = [Avg Silence %]
+		VAR _prior = CALCULATE([Avg Silence %], _priorWindow)
+		RETURN IF(ISBLANK(_selection) || ISBLANK(_prior), BLANK(), (_selection - _prior) * 100)
+	```
+		formatString: +0.0"pts";-0.0"pts";0.0"pts"
+
+	measure 'FCR Rate Delta pts' = ```
+		VAR _lastDataDate = CALCULATE(MAX('Calls'[Call_Date]), ALL('Calls'))
+		VAR _minD = MIN('DateTable'[Date])
+		VAR _maxD = MIN(MAX('DateTable'[Date]), _lastDataDate)
+		VAR _n = DATEDIFF(_minD, _maxD, DAY) + 1
+		VAR _priorWindow = DATESBETWEEN('DateTable'[Date], _minD - _n, _minD - 1)
+		VAR _selection = [FCR Rate]
+		VAR _prior = CALCULATE([FCR Rate], _priorWindow)
+		RETURN IF(ISBLANK(_selection) || ISBLANK(_prior), BLANK(), (_selection - _prior) * 100)
+	```
+		formatString: +0.0"pts";-0.0"pts";0.0"pts"
+
+	measure 'Avg QA Score Delta %' = ```
+		VAR _lastDataDate = CALCULATE(MAX('Calls'[Call_Date]), ALL('Calls'))
+		VAR _minD = MIN('DateTable'[Date])
+		VAR _maxD = MIN(MAX('DateTable'[Date]), _lastDataDate)
+		VAR _n = DATEDIFF(_minD, _maxD, DAY) + 1
+		VAR _priorWindow = DATESBETWEEN('DateTable'[Date], _minD - _n, _minD - 1)
+		VAR _selection = [Avg QA Score]
+		VAR _prior = CALCULATE([Avg QA Score], _priorWindow)
+		RETURN IF(ISBLANK(_selection) || ISBLANK(_prior), BLANK(), DIVIDE(_selection - _prior, _prior))
+	```
+		formatString: +0.0%;-0.0%;0.0%
+
+	measure 'Avg Sentiment Delta %' = ```
+		VAR _lastDataDate = CALCULATE(MAX('Calls'[Call_Date]), ALL('Calls'))
+		VAR _minD = MIN('DateTable'[Date])
+		VAR _maxD = MIN(MAX('DateTable'[Date]), _lastDataDate)
+		VAR _n = DATEDIFF(_minD, _maxD, DAY) + 1
+		VAR _priorWindow = DATESBETWEEN('DateTable'[Date], _minD - _n, _minD - 1)
+		VAR _selection = [Avg Sentiment]
+		VAR _prior = CALCULATE([Avg Sentiment], _priorWindow)
+		RETURN IF(ISBLANK(_selection) || ISBLANK(_prior), BLANK(), DIVIDE(_selection - _prior, _prior))
+	```
+		formatString: +0.0%;-0.0%;0.0%
+
+	measure 'Compliance Risk Rate Delta pts' = ```
+		VAR _lastDataDate = CALCULATE(MAX('Calls'[Call_Date]), ALL('Calls'))
+		VAR _minD = MIN('DateTable'[Date])
+		VAR _maxD = MIN(MAX('DateTable'[Date]), _lastDataDate)
+		VAR _n = DATEDIFF(_minD, _maxD, DAY) + 1
+		VAR _priorWindow = DATESBETWEEN('DateTable'[Date], _minD - _n, _minD - 1)
+		VAR _selection = [Compliance Risk Rate]
+		VAR _prior = CALCULATE([Compliance Risk Rate], _priorWindow)
+		RETURN IF(ISBLANK(_selection) || ISBLANK(_prior), BLANK(), (_selection - _prior) * 100)
+	```
+		formatString: +0.0"pts";-0.0"pts";0.0"pts"
+
+	measure 'Has Active Filter' = ```
+		VAR _visible = COUNTROWS('Calls')
+		VAR _total = CALCULATE(COUNTROWS('Calls'), ALL('Calls'))
+		RETURN _visible < _total
+	```
+
+	measure 'Has Prior Period' = ```
+		VAR _lastDataDate = CALCULATE(MAX('Calls'[Call_Date]), ALL('Calls'))
+		VAR _minD = MIN('DateTable'[Date])
+		VAR _maxD = MIN(MAX('DateTable'[Date]), _lastDataDate)
+		VAR _n = DATEDIFF(_minD, _maxD, DAY) + 1
+		VAR _priorWindow = DATESBETWEEN('DateTable'[Date], _minD - _n, _minD - 1)
+		VAR _priorRows = CALCULATE(COUNTROWS('Calls'), _priorWindow)
+		RETURN NOT(ISBLANK(_priorRows)) && _priorRows > 0
+	```
+
+	measure 'Delta Baseline Label' = SWITCH(TRUE(), NOT([Has Active Filter]), "select a date range to compare", NOT([Has Prior Period]), "no prior period", "vs prior period")
+
+	measure 'Exec Headline Title' = ```
+		VAR _delta = [Total Calls Delta %]
+		VAR _cat = MAXX(TOPN(1, VALUES(Calls[Primary_Category]), [Total Calls], DESC), Calls[Primary_Category])
+		RETURN
+		IF(
+		    ISBLANK([Total Calls]) || [Total Calls] = 0,
+		    "No calls in the selected range",
+		    "Call volume " & IF(
+		        ISBLANK(_delta),
+		        "no prior period available for comparison",
+		        IF(_delta > 0, "▲", IF(_delta < 0, "▼", "")) & FORMAT(ABS(_delta), "0.0%") & " vs prior period"
+		    ) & " - " & _cat & " leads"
+		)
+	```
+
+	measure 'Ops Headline Title' = ```
+		VAR _delta = [Avg QA Score Delta %]
+		VAR _queue = MINX(TOPN(1, VALUES(Calls[Queue_Name]), [Avg QA Score], ASC), Calls[Queue_Name])
+		RETURN
+		IF(
+		    ISBLANK([Total Calls]) || [Total Calls] = 0,
+		    "No calls in the selected range",
+		    "Avg QA score " & IF(
+		        ISBLANK(_delta),
+		        "no prior period available for comparison",
+		        IF(_delta > 0, "▲", IF(_delta < 0, "▼", "")) & FORMAT(ABS(_delta), "0.0%") & " vs prior period"
+		    ) & " - " & _queue & " needs attention"
+		)
+	```
+
+	measure 'Total Calls Delta % Label' = ```
+		VAR _delta = [Total Calls Delta %]
+		RETURN IF(ISBLANK(_delta), "-", IF(_delta > 0, "▲ ", IF(_delta < 0, "▼ ", "")) & FORMAT(_delta, "+0.0%;-0.0%;0.0%"))
+	```
+
+	measure 'Avg Handle Time Delta % Label' = ```
+		VAR _delta = [Avg Handle Time Delta %]
+		RETURN IF(ISBLANK(_delta), "-", IF(_delta > 0, "▲ ", IF(_delta < 0, "▼ ", "")) & FORMAT(_delta, "+0.0%;-0.0%;0.0%"))
+	```
+
+	measure 'Avg Silence Delta pts Label' = ```
+		VAR _delta = [Avg Silence Delta pts]
+		RETURN IF(ISBLANK(_delta), "-", IF(_delta > 0, "▲ ", IF(_delta < 0, "▼ ", "")) & FORMAT(_delta, "+0.0""pts"";-0.0""pts"";0.0""pts"""))
+	```
+
+	measure 'FCR Rate Delta pts Label' = ```
+		VAR _delta = [FCR Rate Delta pts]
+		RETURN IF(ISBLANK(_delta), "-", IF(_delta > 0, "▲ ", IF(_delta < 0, "▼ ", "")) & FORMAT(_delta, "+0.0""pts"";-0.0""pts"";0.0""pts"""))
+	```
+
+	measure 'Avg QA Score Delta % Label' = ```
+		VAR _delta = [Avg QA Score Delta %]
+		RETURN IF(ISBLANK(_delta), "-", IF(_delta > 0, "▲ ", IF(_delta < 0, "▼ ", "")) & FORMAT(_delta, "+0.0%;-0.0%;0.0%"))
+	```
+
+	measure 'Avg Sentiment Delta % Label' = ```
+		VAR _delta = [Avg Sentiment Delta %]
+		RETURN IF(ISBLANK(_delta), "-", IF(_delta > 0, "▲ ", IF(_delta < 0, "▼ ", "")) & FORMAT(_delta, "+0.0%;-0.0%;0.0%"))
+	```
+
+	measure 'Compliance Risk Rate Delta pts Label' = ```
+		VAR _delta = [Compliance Risk Rate Delta pts]
+		RETURN IF(ISBLANK(_delta), "-", IF(_delta > 0, "▲ ", IF(_delta < 0, "▼ ", "")) & FORMAT(_delta, "+0.0""pts"";-0.0""pts"";0.0""pts"""))
+	```
+
+	measure 'FCR Target' = 0.75
+		formatString: 0.0%
+
+	partition Calls = m
+		mode: import
+		source = ```
+			let
+			    Configured = if CsvFolderPath = "<UNSET>" then error "CsvFolderPath has not been set yet. In Power BI Desktop: Home > Transform data > Edit parameters, set CsvFolderPath to the extracted SpeechAnalytics.SemanticModel folder (the one containing the data folder), select OK, then click Apply changes and Refresh." else CsvFolderPath,
+			    Source = Csv.Document(File.Contents(Configured & "/data/dashboard-ready.csv"), [Delimiter=",", Columns=15, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+			    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    Typed = Table.TransformColumnTypes(Promoted, {{"Timestamp", type datetime}, {"Contact_ID", type text}, {"Agent_ID", type text}, {"Queue_Name", type text}, {"Call_Duration (s)", Int64.Type}, {"Silence_Duration (s)", Int64.Type}, {"Silence_Pct", type number}, {"Max_Agitation_Score", Int64.Type}, {"Primary_Category", type text}, {"Customer_Sentiment", Int64.Type}, {"Agent_Quality", Int64.Type}, {"Compliance_Risk", type text}, {"Empathy_Score", Int64.Type}, {"FCR_Flag", Int64.Type}, {"Call_Summary_Transcript", type text}}, "en-US"),
+			    Added_Call_Date = Table.AddColumn(Typed, "Call_Date", each DateTime.Date([Timestamp]), type date),
+			    Added_Compliance_Risk_Order = Table.AddColumn(Added_Call_Date, "Compliance_Risk_Order", each if [Compliance_Risk] = "No Risk" then 1 else if [Compliance_Risk] = "Low Risk" then 2 else if [Compliance_Risk] = "Medium Risk" then 3 else 4, Int64.Type)
+			in
+			    Added_Compliance_Risk_Order
+		```

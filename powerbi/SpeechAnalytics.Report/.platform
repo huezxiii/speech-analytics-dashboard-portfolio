@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "SpeechAnalytics"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "e93a6d18-2f47-4c85-b1de-70a9c34f2b6e"
+  }
+}

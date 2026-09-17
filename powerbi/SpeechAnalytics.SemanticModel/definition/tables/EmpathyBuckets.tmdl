@@ -1,0 +1,39 @@
+table EmpathyBuckets
+	lineageTag: 34e1b0c2-7a4d-4f19-8b36-05c9d2e7a1f4
+
+	column Bucket_Label
+		dataType: string
+		lineageTag: 34e2b1c3-8b5e-4a27-9c48-16d0e3f8b205
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Bucket_Label]
+		sortByColumn: Bucket_Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column Bucket_Order
+		dataType: int64
+		formatString: 0
+		lineageTag: 34e3b2c4-9c6f-4b38-ad59-27e1f409c316
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Bucket_Order]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition EmpathyBuckets = calculated
+		mode: import
+		source =
+			DATATABLE(
+				"Bucket_Label", STRING,
+				"Bucket_Order", INTEGER,
+				{
+					{ "0-20", 1 },
+					{ "21-40", 2 },
+					{ "41-60", 3 },
+					{ "61-80", 4 },
+					{ "81-100", 5 }
+				}
+			)
+
+	annotation PBI_Id = 34e1b0c27a4d4f198b3605c9d2e7a1f4

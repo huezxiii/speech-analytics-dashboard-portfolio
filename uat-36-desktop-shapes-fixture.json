@@ -1,0 +1,1542 @@
+{
+  "metadata": {
+    "purpose": "Desktop-authored JSON shapes for G-36-4 (QA reference line) and G-36-8 (card caption) gap closure",
+    "worksheet": "uat-36-desktop-shapes.md",
+    "captureScript": "uat-36-desktop-shapes-capture.js",
+    "spikeDir": "C:/Users/Reviewer/AppData/Local/Temp/speech-analytics-pbi-spike-36",
+    "capturedAt": "2026-09-16T22:58:46.794Z"
+  },
+  "resaveEvidence": {
+    "capturedAt": "2026-09-16T21:12:50.234Z",
+    "headCommit": "b19605c51d774b986df9577c2d4aaf1b9376859e",
+    "gitStatusPorcelain": [
+      " M powerbi/SpeechAnalytics.Report/definition/pages/34e0f1a2b3c4d5e60718/visuals/34a3b4c5d6e7f8091a2b/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/34e0f1a2b3c4d5e60718/visuals/34a4b5c6d7e8f90a1b2c/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/34e0f1a2b3c4d5e60718/visuals/34a5b6c7d8e9f01a2b3c/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/34e0f1a2b3c4d5e60718/visuals/34c0d1e2f30415263748/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/34e0f1a2b3c4d5e60718/visuals/34c1d2e3f40516273849/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/34e0f1a2b3c4d5e60718/visuals/34c2d3e4f50617283940/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/1b7e4a2c8f60d3591c4b/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/2d9f6b0a4e13c78520fa/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/3a4c8e15b7d02f96e831/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/4f0b23d78a1c5e69b0d4/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/5e6d19af03b74c28d5a0/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/6b2708c4e9a15d3f70bc/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/7c8a35f1602bd94e8a17/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/8d15e0b96c4a273f01de/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/9a3f7c2e5081bd64f29c/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/a0e94b18d5c7360f2b83/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/b17c60ea294f8d3501ba/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/d3e0a7c19f2b8465ad10/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/b2c3d4e5f6a7b8c9d0e1/visuals/2b3c4d5e6f708192a3b4/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/b2c3d4e5f6a7b8c9d0e1/visuals/3c4d5e6f708192a3b4c5/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/b2c3d4e5f6a7b8c9d0e1/visuals/4d5e6f708192a3b4c5d6/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/b2c3d4e5f6a7b8c9d0e1/visuals/5e6f708192a3b4c5d6e7/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/b2c3d4e5f6a7b8c9d0e1/visuals/6f708192a3b4c5d6e7f8/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/b2c3d4e5f6a7b8c9d0e1/visuals/708192a3b4c5d6e7f809/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/b2c3d4e5f6a7b8c9d0e1/visuals/8192a3b4c5d6e7f8091a/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/b2c3d4e5f6a7b8c9d0e1/visuals/e4f1b8d2a03c9576be21/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/d4e5f6a7b8c9d0e1f2a3/page.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/pages.json",
+      " M powerbi/SpeechAnalytics.Report/definition/report.json",
+      " M powerbi/SpeechAnalytics.SemanticModel/definition/cultures/en-US.tmdl",
+      " M powerbi/SpeechAnalytics.SemanticModel/definition/database.tmdl",
+      " M powerbi/SpeechAnalytics.SemanticModel/definition/expressions.tmdl",
+      " M powerbi/SpeechAnalytics.SemanticModel/definition/model.tmdl",
+      " M powerbi/SpeechAnalytics.SemanticModel/definition/relationships.tmdl",
+      " M powerbi/SpeechAnalytics.SemanticModel/definition/tables/Calls.tmdl",
+      " M powerbi/SpeechAnalytics.SemanticModel/definition/tables/DateTable.tmdl",
+      " M powerbi/SpeechAnalytics.SemanticModel/definition/tables/EmpathyBuckets.tmdl",
+      " M powerbi/SpeechAnalytics.SemanticModel/definition/tables/SilenceBuckets.tmdl",
+      "?? powerbi/SpeechAnalytics.SemanticModel/.pbi/",
+      "?? powerbi/SpeechAnalytics.SemanticModel/definition/tables/DateTableTemplate_eee13390-8a8c-4de4-89e4-ce88c009f0bd.tmdl",
+      "?? powerbi/SpeechAnalytics.SemanticModel/definition/tables/LocalDateTable_a4a02e44-ba34-4fa7-a81a-56414e542add.tmdl",
+      "?? powerbi/SpeechAnalytics.SemanticModel/diagramLayout.json"
+    ],
+    "gitStatusIgnored": [
+      " M powerbi/SpeechAnalytics.Report/definition/pages/34e0f1a2b3c4d5e60718/visuals/34a3b4c5d6e7f8091a2b/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/34e0f1a2b3c4d5e60718/visuals/34a4b5c6d7e8f90a1b2c/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/34e0f1a2b3c4d5e60718/visuals/34a5b6c7d8e9f01a2b3c/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/34e0f1a2b3c4d5e60718/visuals/34c0d1e2f30415263748/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/34e0f1a2b3c4d5e60718/visuals/34c1d2e3f40516273849/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/34e0f1a2b3c4d5e60718/visuals/34c2d3e4f50617283940/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/1b7e4a2c8f60d3591c4b/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/2d9f6b0a4e13c78520fa/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/3a4c8e15b7d02f96e831/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/4f0b23d78a1c5e69b0d4/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/5e6d19af03b74c28d5a0/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/6b2708c4e9a15d3f70bc/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/7c8a35f1602bd94e8a17/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/8d15e0b96c4a273f01de/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/9a3f7c2e5081bd64f29c/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/a0e94b18d5c7360f2b83/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/b17c60ea294f8d3501ba/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/d3e0a7c19f2b8465ad10/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/b2c3d4e5f6a7b8c9d0e1/visuals/2b3c4d5e6f708192a3b4/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/b2c3d4e5f6a7b8c9d0e1/visuals/3c4d5e6f708192a3b4c5/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/b2c3d4e5f6a7b8c9d0e1/visuals/4d5e6f708192a3b4c5d6/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/b2c3d4e5f6a7b8c9d0e1/visuals/5e6f708192a3b4c5d6e7/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/b2c3d4e5f6a7b8c9d0e1/visuals/6f708192a3b4c5d6e7f8/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/b2c3d4e5f6a7b8c9d0e1/visuals/708192a3b4c5d6e7f809/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/b2c3d4e5f6a7b8c9d0e1/visuals/8192a3b4c5d6e7f8091a/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/b2c3d4e5f6a7b8c9d0e1/visuals/e4f1b8d2a03c9576be21/visual.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/d4e5f6a7b8c9d0e1f2a3/page.json",
+      " M powerbi/SpeechAnalytics.Report/definition/pages/pages.json",
+      " M powerbi/SpeechAnalytics.Report/definition/report.json",
+      " M powerbi/SpeechAnalytics.SemanticModel/definition/cultures/en-US.tmdl",
+      " M powerbi/SpeechAnalytics.SemanticModel/definition/database.tmdl",
+      " M powerbi/SpeechAnalytics.SemanticModel/definition/expressions.tmdl",
+      " M powerbi/SpeechAnalytics.SemanticModel/definition/model.tmdl",
+      " M powerbi/SpeechAnalytics.SemanticModel/definition/relationships.tmdl",
+      " M powerbi/SpeechAnalytics.SemanticModel/definition/tables/Calls.tmdl",
+      " M powerbi/SpeechAnalytics.SemanticModel/definition/tables/DateTable.tmdl",
+      " M powerbi/SpeechAnalytics.SemanticModel/definition/tables/EmpathyBuckets.tmdl",
+      " M powerbi/SpeechAnalytics.SemanticModel/definition/tables/SilenceBuckets.tmdl",
+      "?? powerbi/SpeechAnalytics.SemanticModel/.pbi/",
+      "?? powerbi/SpeechAnalytics.SemanticModel/definition/tables/DateTableTemplate_eee13390-8a8c-4de4-89e4-ce88c009f0bd.tmdl",
+      "?? powerbi/SpeechAnalytics.SemanticModel/definition/tables/LocalDateTable_a4a02e44-ba34-4fa7-a81a-56414e542add.tmdl",
+      "?? powerbi/SpeechAnalytics.SemanticModel/diagramLayout.json",
+      "!! powerbi/SpeechAnalytics.Report/.pbi/",
+      "!! powerbi/SpeechAnalytics.SemanticModel/.pbi/cache.abf",
+      "!! powerbi/SpeechAnalytics.SemanticModel/.pbi/localSettings.json"
+    ],
+    "diffStat": " .../visuals/34a3b4c5d6e7f8091a2b/visual.json       |   7 +-\n .../visuals/34a4b5c6d7e8f90a1b2c/visual.json       |  22 +-\n .../visuals/34a5b6c7d8e9f01a2b3c/visual.json       |   7 +-\n .../visuals/34c0d1e2f30415263748/visual.json       |   7 +-\n .../visuals/34c1d2e3f40516273849/visual.json       |  14 +-\n .../visuals/34c2d3e4f50617283940/visual.json       |  46 +-\n .../visuals/1b7e4a2c8f60d3591c4b/visual.json       |  23 +-\n .../visuals/2d9f6b0a4e13c78520fa/visual.json       |  23 +-\n .../visuals/3a4c8e15b7d02f96e831/visual.json       |  23 +-\n .../visuals/4f0b23d78a1c5e69b0d4/visual.json       |  23 +-\n .../visuals/5e6d19af03b74c28d5a0/visual.json       |  23 +-\n .../visuals/6b2708c4e9a15d3f70bc/visual.json       |  23 +-\n .../visuals/7c8a35f1602bd94e8a17/visual.json       |  23 +-\n .../visuals/8d15e0b96c4a273f01de/visual.json       |   7 +-\n .../visuals/9a3f7c2e5081bd64f29c/visual.json       |  46 +-\n .../visuals/a0e94b18d5c7360f2b83/visual.json       |  22 +-\n .../visuals/b17c60ea294f8d3501ba/visual.json       |   7 +-\n .../visuals/d3e0a7c19f2b8465ad10/visual.json       |   7 +-\n .../visuals/2b3c4d5e6f708192a3b4/visual.json       |  40 +-\n .../visuals/3c4d5e6f708192a3b4c5/visual.json       |   7 +-\n .../visuals/4d5e6f708192a3b4c5d6/visual.json       |   7 +-\n .../visuals/5e6f708192a3b4c5d6e7/visual.json       |  10 +-\n .../visuals/6f708192a3b4c5d6e7f8/visual.json       |  14 +-\n .../visuals/708192a3b4c5d6e7f809/visual.json       |  33 +-\n .../visuals/8192a3b4c5d6e7f8091a/visual.json       |  14 +-\n .../visuals/e4f1b8d2a03c9576be21/visual.json       |   7 +-\n .../pages/d4e5f6a7b8c9d0e1f2a3/page.json           |  43 +-\n .../definition/pages/pages.json                    |   2 +-\n .../SpeechAnalytics.Report/definition/report.json  |   2 +-\n .../definition/cultures/en-US.tmdl                 |   1 +\n .../definition/database.tmdl                       |   1 +\n .../definition/expressions.tmdl                    |   6 +-\n .../definition/model.tmdl                          |  13 +-\n .../definition/relationships.tmdl                  |   7 +-\n .../definition/tables/Calls.tmdl                   | 554 ++++++++++++---------\n .../definition/tables/DateTable.tmdl               |  23 +-\n .../definition/tables/EmpathyBuckets.tmdl          |  23 +-\n .../definition/tables/SilenceBuckets.tmdl          |  23 +-\n 38 files changed, 642 insertions(+), 541 deletions(-)\n",
+    "cleanDryRun": [
+      "Would remove powerbi/SpeechAnalytics.SemanticModel/.pbi/editorSettings.json",
+      "Would remove powerbi/SpeechAnalytics.SemanticModel/definition/tables/DateTableTemplate_eee13390-8a8c-4de4-89e4-ce88c009f0bd.tmdl",
+      "Would remove powerbi/SpeechAnalytics.SemanticModel/definition/tables/LocalDateTable_a4a02e44-ba34-4fa7-a81a-56414e542add.tmdl",
+      "Would remove powerbi/SpeechAnalytics.SemanticModel/diagramLayout.json"
+    ],
+    "cleanIgnoredDryRun": [
+      "Would remove powerbi/SpeechAnalytics.Report/.pbi/",
+      "Would remove powerbi/SpeechAnalytics.SemanticModel/.pbi/cache.abf",
+      "Would remove powerbi/SpeechAnalytics.SemanticModel/.pbi/localSettings.json"
+    ],
+    "barQueueBreakdown": {
+      "path": "powerbi/SpeechAnalytics.Report/definition/pages/b2c3d4e5f6a7b8c9d0e1/visuals/6f708192a3b4c5d6e7f8/visual.json",
+      "schemaHead": "2.9.0",
+      "schemaResave": "2.12.0",
+      "objectsHead": {
+        "labels": [
+          {
+            "properties": {
+              "show": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              },
+              "position": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'OutsideEnd'"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "properties": {
+              "start": {
+                "expr": {
+                  "Literal": {
+                    "Value": "75D"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "referenceLine": [
+          {
+            "properties": {
+              "show": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              },
+              "value": {
+                "expr": {
+                  "Literal": {
+                    "Value": "85D"
+                  }
+                }
+              },
+              "displayName": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'QA target 85 of 100 (generator default, not a published organizational target)'"
+                  }
+                }
+              },
+              "dataLabelShow": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              },
+              "dataLabelText": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'ValueAndName'"
+                  }
+                }
+              }
+            },
+            "selector": {
+              "id": "barQueueBreakdownTarget"
+            }
+          }
+        ]
+      },
+      "objectsResave": {
+        "labels": [
+          {
+            "properties": {
+              "show": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "valueAxis": [
+          {
+            "properties": {
+              "start": {
+                "expr": {
+                  "Literal": {
+                    "Value": "75D"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "referenceLine": [
+          {
+            "properties": {
+              "show": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              },
+              "value": {
+                "expr": {
+                  "Literal": {
+                    "Value": "85D"
+                  }
+                }
+              },
+              "displayName": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'QA target 85 of 100 (generator default, not a published organizational target)'"
+                  }
+                }
+              },
+              "dataLabelShow": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              },
+              "dataLabelText": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'ValueAndName'"
+                  }
+                }
+              }
+            },
+            "selector": {
+              "id": "barQueueBreakdownTarget"
+            }
+          }
+        ]
+      },
+      "visualContainerObjectsHead": {
+        "title": [
+          {
+            "properties": {
+              "show": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              },
+              "text": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Avg QA Score by Queue'"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "subTitle": [
+          {
+            "properties": {
+              "show": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              },
+              "text": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Axis starts at 75'"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "visualContainerObjectsResave": {
+        "title": [
+          {
+            "properties": {
+              "show": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              },
+              "text": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Avg QA Score by Queue'"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "subTitle": [
+          {
+            "properties": {
+              "show": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              },
+              "text": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Axis starts at 75'"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "execCards": [
+      {
+        "id": "1b7e4a2c8f60d3591c4b",
+        "headHasTitle": true,
+        "resaveHasTitle": false,
+        "valueUnchanged": true,
+        "referenceLabelHead": [
+          {
+            "properties": {
+              "title": {
+                "show": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "false"
+                    }
+                  }
+                },
+                "expr": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Calls"
+                      }
+                    },
+                    "Property": "Delta Baseline Label"
+                  }
+                }
+              },
+              "value": {
+                "expr": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Calls"
+                      }
+                    },
+                    "Property": "Total Calls Delta % Label"
+                  }
+                }
+              }
+            },
+            "selector": {
+              "data": [
+                {
+                  "dataViewWildcard": {
+                    "matchingOption": 0
+                  }
+                }
+              ],
+              "metadata": "Calls.Total Calls",
+              "id": "field-1b7e4a2c8f60d3591c4b",
+              "order": 0
+            }
+          }
+        ],
+        "referenceLabelResave": [
+          {
+            "properties": {
+              "value": {
+                "expr": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Calls"
+                      }
+                    },
+                    "Property": "Total Calls Delta % Label"
+                  }
+                }
+              }
+            },
+            "selector": {
+              "data": [
+                {
+                  "dataViewWildcard": {
+                    "matchingOption": 0
+                  }
+                }
+              ],
+              "metadata": "Calls.Total Calls",
+              "id": "field-1b7e4a2c8f60d3591c4b",
+              "order": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "2d9f6b0a4e13c78520fa",
+        "headHasTitle": true,
+        "resaveHasTitle": false,
+        "valueUnchanged": true,
+        "referenceLabelHead": [
+          {
+            "properties": {
+              "title": {
+                "show": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "false"
+                    }
+                  }
+                },
+                "expr": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Calls"
+                      }
+                    },
+                    "Property": "Delta Baseline Label"
+                  }
+                }
+              },
+              "value": {
+                "expr": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Calls"
+                      }
+                    },
+                    "Property": "Avg Handle Time Delta % Label"
+                  }
+                }
+              }
+            },
+            "selector": {
+              "data": [
+                {
+                  "dataViewWildcard": {
+                    "matchingOption": 0
+                  }
+                }
+              ],
+              "metadata": "Calls.Avg Handle Time (s)",
+              "id": "field-2d9f6b0a4e13c78520fa",
+              "order": 0
+            }
+          }
+        ],
+        "referenceLabelResave": [
+          {
+            "properties": {
+              "value": {
+                "expr": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Calls"
+                      }
+                    },
+                    "Property": "Avg Handle Time Delta % Label"
+                  }
+                }
+              }
+            },
+            "selector": {
+              "data": [
+                {
+                  "dataViewWildcard": {
+                    "matchingOption": 0
+                  }
+                }
+              ],
+              "metadata": "Calls.Avg Handle Time (s)",
+              "id": "field-2d9f6b0a4e13c78520fa",
+              "order": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "3a4c8e15b7d02f96e831",
+        "headHasTitle": true,
+        "resaveHasTitle": false,
+        "valueUnchanged": true,
+        "referenceLabelHead": [
+          {
+            "properties": {
+              "title": {
+                "show": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "false"
+                    }
+                  }
+                },
+                "expr": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Calls"
+                      }
+                    },
+                    "Property": "Delta Baseline Label"
+                  }
+                }
+              },
+              "value": {
+                "expr": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Calls"
+                      }
+                    },
+                    "Property": "Avg Silence Delta pts Label"
+                  }
+                }
+              }
+            },
+            "selector": {
+              "data": [
+                {
+                  "dataViewWildcard": {
+                    "matchingOption": 0
+                  }
+                }
+              ],
+              "metadata": "Calls.Avg Silence %",
+              "id": "field-3a4c8e15b7d02f96e831",
+              "order": 0
+            }
+          }
+        ],
+        "referenceLabelResave": [
+          {
+            "properties": {
+              "value": {
+                "expr": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Calls"
+                      }
+                    },
+                    "Property": "Avg Silence Delta pts Label"
+                  }
+                }
+              }
+            },
+            "selector": {
+              "data": [
+                {
+                  "dataViewWildcard": {
+                    "matchingOption": 0
+                  }
+                }
+              ],
+              "metadata": "Calls.Avg Silence %",
+              "id": "field-3a4c8e15b7d02f96e831",
+              "order": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "4f0b23d78a1c5e69b0d4",
+        "headHasTitle": true,
+        "resaveHasTitle": false,
+        "valueUnchanged": true,
+        "referenceLabelHead": [
+          {
+            "properties": {
+              "title": {
+                "show": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "false"
+                    }
+                  }
+                },
+                "expr": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Calls"
+                      }
+                    },
+                    "Property": "Delta Baseline Label"
+                  }
+                }
+              },
+              "value": {
+                "expr": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Calls"
+                      }
+                    },
+                    "Property": "FCR Rate Delta pts Label"
+                  }
+                }
+              }
+            },
+            "selector": {
+              "data": [
+                {
+                  "dataViewWildcard": {
+                    "matchingOption": 0
+                  }
+                }
+              ],
+              "metadata": "Calls.FCR Rate",
+              "id": "field-4f0b23d78a1c5e69b0d4",
+              "order": 0
+            }
+          }
+        ],
+        "referenceLabelResave": [
+          {
+            "properties": {
+              "value": {
+                "expr": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Calls"
+                      }
+                    },
+                    "Property": "FCR Rate Delta pts Label"
+                  }
+                }
+              }
+            },
+            "selector": {
+              "data": [
+                {
+                  "dataViewWildcard": {
+                    "matchingOption": 0
+                  }
+                }
+              ],
+              "metadata": "Calls.FCR Rate",
+              "id": "field-4f0b23d78a1c5e69b0d4",
+              "order": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "5e6d19af03b74c28d5a0",
+        "headHasTitle": true,
+        "resaveHasTitle": false,
+        "valueUnchanged": true,
+        "referenceLabelHead": [
+          {
+            "properties": {
+              "title": {
+                "show": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "false"
+                    }
+                  }
+                },
+                "expr": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Calls"
+                      }
+                    },
+                    "Property": "Delta Baseline Label"
+                  }
+                }
+              },
+              "value": {
+                "expr": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Calls"
+                      }
+                    },
+                    "Property": "Avg QA Score Delta % Label"
+                  }
+                }
+              }
+            },
+            "selector": {
+              "data": [
+                {
+                  "dataViewWildcard": {
+                    "matchingOption": 0
+                  }
+                }
+              ],
+              "metadata": "Calls.Avg QA Score",
+              "id": "field-5e6d19af03b74c28d5a0",
+              "order": 0
+            }
+          }
+        ],
+        "referenceLabelResave": [
+          {
+            "properties": {
+              "value": {
+                "expr": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Calls"
+                      }
+                    },
+                    "Property": "Avg QA Score Delta % Label"
+                  }
+                }
+              }
+            },
+            "selector": {
+              "data": [
+                {
+                  "dataViewWildcard": {
+                    "matchingOption": 0
+                  }
+                }
+              ],
+              "metadata": "Calls.Avg QA Score",
+              "id": "field-5e6d19af03b74c28d5a0",
+              "order": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "6b2708c4e9a15d3f70bc",
+        "headHasTitle": true,
+        "resaveHasTitle": false,
+        "valueUnchanged": true,
+        "referenceLabelHead": [
+          {
+            "properties": {
+              "title": {
+                "show": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "false"
+                    }
+                  }
+                },
+                "expr": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Calls"
+                      }
+                    },
+                    "Property": "Delta Baseline Label"
+                  }
+                }
+              },
+              "value": {
+                "expr": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Calls"
+                      }
+                    },
+                    "Property": "Avg Sentiment Delta % Label"
+                  }
+                }
+              }
+            },
+            "selector": {
+              "data": [
+                {
+                  "dataViewWildcard": {
+                    "matchingOption": 0
+                  }
+                }
+              ],
+              "metadata": "Calls.Avg Sentiment",
+              "id": "field-6b2708c4e9a15d3f70bc",
+              "order": 0
+            }
+          }
+        ],
+        "referenceLabelResave": [
+          {
+            "properties": {
+              "value": {
+                "expr": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Calls"
+                      }
+                    },
+                    "Property": "Avg Sentiment Delta % Label"
+                  }
+                }
+              }
+            },
+            "selector": {
+              "data": [
+                {
+                  "dataViewWildcard": {
+                    "matchingOption": 0
+                  }
+                }
+              ],
+              "metadata": "Calls.Avg Sentiment",
+              "id": "field-6b2708c4e9a15d3f70bc",
+              "order": 0
+            }
+          }
+        ]
+      },
+      {
+        "id": "7c8a35f1602bd94e8a17",
+        "headHasTitle": true,
+        "resaveHasTitle": false,
+        "valueUnchanged": true,
+        "referenceLabelHead": [
+          {
+            "properties": {
+              "title": {
+                "show": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "false"
+                    }
+                  }
+                },
+                "expr": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Calls"
+                      }
+                    },
+                    "Property": "Delta Baseline Label"
+                  }
+                }
+              },
+              "value": {
+                "expr": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Calls"
+                      }
+                    },
+                    "Property": "Compliance Risk Rate Delta pts Label"
+                  }
+                }
+              }
+            },
+            "selector": {
+              "data": [
+                {
+                  "dataViewWildcard": {
+                    "matchingOption": 0
+                  }
+                }
+              ],
+              "metadata": "Calls.Compliance Risk Rate",
+              "id": "field-7c8a35f1602bd94e8a17",
+              "order": 0
+            }
+          }
+        ],
+        "referenceLabelResave": [
+          {
+            "properties": {
+              "value": {
+                "expr": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Calls"
+                      }
+                    },
+                    "Property": "Compliance Risk Rate Delta pts Label"
+                  }
+                }
+              }
+            },
+            "selector": {
+              "data": [
+                {
+                  "dataViewWildcard": {
+                    "matchingOption": 0
+                  }
+                }
+              ],
+              "metadata": "Calls.Compliance Risk Rate",
+              "id": "field-7c8a35f1602bd94e8a17",
+              "order": 0
+            }
+          }
+        ]
+      }
+    ],
+    "registeredImages": [
+      {
+        "path": "powerbi/SpeechAnalytics.Report/StaticResources/RegisteredResources/brand-icon.png",
+        "sizeBytes": 17360,
+        "firstBytesHex": "6956424f5277304b"
+      },
+      {
+        "path": "powerbi/SpeechAnalytics.Report/StaticResources/RegisteredResources/brand-text.png",
+        "sizeBytes": 15048,
+        "firstBytesHex": "6956424f5277304b"
+      }
+    ]
+  },
+  "spikeBefore": {
+    "spikeDir": "C:/Users/Reviewer/AppData/Local/Temp/speech-analytics-pbi-spike-36",
+    "preparedAt": "2026-09-16T21:15:52.538Z",
+    "files": {
+      "bar": {
+        "relPath": "powerbi/SpeechAnalytics.Report/definition/pages/b2c3d4e5f6a7b8c9d0e1/visuals/6f708192a3b4c5d6e7f8/visual.json",
+        "sha256": "89da986e4346b1b7f9dc29384a83c50becc8de5cbf1e2ff307d0305e8940cfdb",
+        "schema": "2.12.0",
+        "objects": {
+          "labels": [
+            {
+              "properties": {
+                "show": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "valueAxis": [
+            {
+              "properties": {
+                "start": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "75D"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "visualContainerObjects": {
+          "title": [
+            {
+              "properties": {
+                "show": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                },
+                "text": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'Avg QA Score by Queue'"
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "subTitle": [
+            {
+              "properties": {
+                "show": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                },
+                "text": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'Axis starts at 75'"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "cardTotalCalls": {
+        "relPath": "powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/1b7e4a2c8f60d3591c4b/visual.json",
+        "sha256": "8cec975a66e3619c46e8c47c4948e6ed956f084a12141d00535316ba4a50869a",
+        "schema": "2.12.0",
+        "objects": {
+          "label": [
+            {
+              "properties": {
+                "show": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                },
+                "text": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'Call Volume'"
+                    }
+                  }
+                }
+              },
+              "selector": {
+                "id": "default"
+              }
+            }
+          ],
+          "referenceLabel": [
+            {
+              "properties": {
+                "value": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calls"
+                        }
+                      },
+                      "Property": "Total Calls Delta % Label"
+                    }
+                  }
+                }
+              },
+              "selector": {
+                "data": [
+                  {
+                    "dataViewWildcard": {
+                      "matchingOption": 0
+                    }
+                  }
+                ],
+                "metadata": "Calls.Total Calls",
+                "id": "field-1b7e4a2c8f60d3591c4b",
+                "order": 0
+              }
+            }
+          ]
+        },
+        "visualContainerObjects": null
+      },
+      "cardAvgHandleTime": {
+        "relPath": "powerbi/SpeechAnalytics.Report/definition/pages/a1b2c3d4e5f6a7b8c9d0/visuals/2d9f6b0a4e13c78520fa/visual.json",
+        "sha256": "0b926947fb11b0ffc4312f5f03a7dd91d811fe42e5c6491b7b1440964c791544",
+        "schema": "2.12.0",
+        "objects": {
+          "label": [
+            {
+              "properties": {
+                "show": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                },
+                "text": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'Avg Handle Time'"
+                    }
+                  }
+                }
+              },
+              "selector": {
+                "id": "default"
+              }
+            }
+          ],
+          "referenceLabel": [
+            {
+              "properties": {
+                "value": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Calls"
+                        }
+                      },
+                      "Property": "Avg Handle Time Delta % Label"
+                    }
+                  }
+                }
+              },
+              "selector": {
+                "data": [
+                  {
+                    "dataViewWildcard": {
+                      "matchingOption": 0
+                    }
+                  }
+                ],
+                "metadata": "Calls.Avg Handle Time (s)",
+                "id": "field-2d9f6b0a4e13c78520fa",
+                "order": 0
+              }
+            }
+          ]
+        },
+        "visualContainerObjects": null
+      }
+    }
+  },
+  "referenceLine": {
+    "spikeDir": "C:/Users/Reviewer/AppData/Local/Temp/speech-analytics-pbi-spike-36",
+    "objectKey": "y1AxisReferenceLine",
+    "candidates": [
+      "y1AxisReferenceLine"
+    ],
+    "capturedObject": [
+      {
+        "properties": {
+          "show": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          },
+          "displayName": {
+            "expr": {
+              "Literal": {
+                "Value": "'QA target 85 of 100 (generator default, not a published organizational target)'"
+              }
+            }
+          },
+          "value": {
+            "expr": {
+              "Literal": {
+                "Value": "85D"
+              }
+            }
+          },
+          "dataLabelShow": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          },
+          "dataLabelText": {
+            "expr": {
+              "Literal": {
+                "Value": "'ValueAndName'"
+              }
+            }
+          }
+        },
+        "selector": {
+          "id": "1"
+        }
+      }
+    ],
+    "capturedSelector": {
+      "id": "1"
+    },
+    "capturedPropertyNames": [
+      "dataLabelShow",
+      "dataLabelText",
+      "displayName",
+      "show",
+      "value"
+    ],
+    "schema": "2.12.0",
+    "afterSha256": "e8518a63fa11385bb55a36a52d8988d77d5cfa9efee58a9b1fba4538722d2e62",
+    "afterMtime": "2026-09-16T22:51:48.905Z",
+    "otherChangedPaths": []
+  },
+  "cardCaption": {
+    "spikeDir": "C:/Users/Reviewer/AppData/Local/Temp/speech-analytics-pbi-spike-36",
+    "changedPaths": [
+      {
+        "path": [
+          "objects",
+          "referenceLabelDetail"
+        ],
+        "after": [
+          {
+            "properties": {
+              "show": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            },
+            "selector": {
+              "metadata": "Calls.Total Calls"
+            }
+          }
+        ],
+        "added": true
+      },
+      {
+        "path": [
+          "objects",
+          "referenceLabelTitle"
+        ],
+        "after": [
+          {
+            "properties": {
+              "titleContentType": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'custom'"
+                  }
+                }
+              }
+            },
+            "selector": {
+              "metadata": "Calls.Total Calls",
+              "id": "field-1b7e4a2c8f60d3591c4b"
+            }
+          },
+          {
+            "properties": {
+              "titleText": {
+                "expr": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Calls"
+                      }
+                    },
+                    "Property": "Delta Baseline Label"
+                  }
+                }
+              }
+            },
+            "selector": {
+              "data": [
+                {
+                  "dataViewWildcard": {
+                    "matchingOption": 0
+                  }
+                }
+              ],
+              "metadata": "Calls.Total Calls",
+              "id": "field-1b7e4a2c8f60d3591c4b"
+            }
+          }
+        ],
+        "added": true
+      }
+    ],
+    "boundPath": [
+      "objects",
+      "referenceLabelTitle",
+      1,
+      "properties",
+      "titleText",
+      "expr",
+      "Measure"
+    ],
+    "capturedObjects": {
+      "label": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Call Volume'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "referenceLabel": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calls"
+                    }
+                  },
+                  "Property": "Total Calls Delta % Label"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "Calls.Total Calls",
+            "id": "field-1b7e4a2c8f60d3591c4b",
+            "order": 0
+          }
+        }
+      ],
+      "referenceLabelDetail": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Calls.Total Calls"
+          }
+        }
+      ],
+      "referenceLabelTitle": [
+        {
+          "properties": {
+            "titleContentType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'custom'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Calls.Total Calls",
+            "id": "field-1b7e4a2c8f60d3591c4b"
+          }
+        },
+        {
+          "properties": {
+            "titleText": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calls"
+                    }
+                  },
+                  "Property": "Delta Baseline Label"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "Calls.Total Calls",
+            "id": "field-1b7e4a2c8f60d3591c4b"
+          }
+        }
+      ]
+    },
+    "schema": "2.12.0",
+    "afterSha256": "ca06d756dd87e31ac029d2275e1b21a75b2fe94ad26566afd4e5114039a185ce",
+    "afterMtime": "2026-09-16T22:47:16.264Z"
+  },
+  "captionOff": {
+    "spikeDir": "C:/Users/Reviewer/AppData/Local/Temp/speech-analytics-pbi-spike-36",
+    "changed": true,
+    "changedPaths": [
+      {
+        "path": [
+          "objects",
+          "referenceLabelTitle"
+        ],
+        "after": [
+          {
+            "properties": {
+              "show": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            },
+            "selector": {
+              "metadata": "Calls.Avg Handle Time (s)"
+            }
+          }
+        ],
+        "added": true
+      }
+    ],
+    "capturedObjects": {
+      "label": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Avg Handle Time'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "referenceLabel": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calls"
+                    }
+                  },
+                  "Property": "Avg Handle Time Delta % Label"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "Calls.Avg Handle Time (s)",
+            "id": "field-2d9f6b0a4e13c78520fa",
+            "order": 0
+          }
+        }
+      ],
+      "referenceLabelTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Calls.Avg Handle Time (s)"
+          }
+        }
+      ]
+    },
+    "schema": "2.12.0",
+    "afterSha256": "839722f24afb08def09e286473d7c7b27b88ea0055e29ce0496b4fe2efd05813",
+    "afterMtime": "2026-09-16T22:47:16.265Z"
+  }
+}

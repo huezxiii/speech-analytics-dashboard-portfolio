@@ -103,17 +103,14 @@ def generate_mock_dataset(filename="dashboard-ready.csv", total_calls=1200, seed
     start_date = datetime(2026, 8, 20, 0, 0)
     end_date = datetime(2026, 8, 26, 23, 59)
     incident_date = datetime(2026, 8, 24, 12, 0)
+    total_seconds = int((end_date - start_date).total_seconds())
 
     rows = []
 
     for i in range(total_calls):
-        # 30% calls before incident, 70% after incident
-        if random.random() < 0.30:
-            dt = start_date + timedelta(seconds=random.randint(0, int((incident_date - start_date).total_seconds())))
-            is_incident_period = False
-        else:
-            dt = incident_date + timedelta(seconds=random.randint(0, int((end_date - incident_date).total_seconds())))
-            is_incident_period = True
+        # Evenly span across the 7-day period (150-190 calls per day)
+        dt = start_date + timedelta(seconds=random.randint(0, total_seconds))
+        is_incident_period = (dt >= incident_date)
 
         contact_id = f"CM-{random.randint(10000, 99999)}-{random.choice(['A', 'B', 'C'])}"
         agent_id = random.choice(AGENTS)
@@ -144,13 +141,13 @@ def generate_mock_dataset(filename="dashboard-ready.csv", total_calls=1200, seed
 
         silence_duration = int(round(call_duration * (silence_pct / 100.0)))
         
-        # Calculate Agent Quality score based on empathy, compliance, and silence penalty
-        base_qa = (empathy * 0.5) + (50 - silence_pct * 0.4)
+        # Calculate Agent Quality score based on realistic contact center benchmarks (~88 avg)
+        base_qa = 93.0 - (silence_pct * 0.22) + (empathy * 0.08)
         if compliance_risk == 'High Risk':
-            base_qa -= 20
+            base_qa -= 8
         elif compliance_risk == 'Medium Risk':
-            base_qa -= 10
-        agent_qa = int(max(20, min(100, round(base_qa + random.uniform(-5, 5)))))
+            base_qa -= 4
+        agent_qa = int(max(40, min(100, round(base_qa + random.uniform(-4, 4)))))
 
         rows.append({
             'Timestamp': dt.strftime('%Y-%m-%d %H:%M:%S'),

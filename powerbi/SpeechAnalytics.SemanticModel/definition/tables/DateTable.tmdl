@@ -1,0 +1,60 @@
+table DateTable
+	lineageTag: d4e5f6a7-b8c9-0123-def0-234567890123
+	dataCategory: Time
+
+	column Date
+		isKey
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: e5f6a7b8-c9d0-1234-ef01-345678901234
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: f6a7b8c9-d0e1-2345-f012-456789012345
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month_Number
+		dataType: int64
+		formatString: 0
+		lineageTag: a7b8c9d0-e1f2-3456-0123-567890123456
+		summarizeBy: none
+		isHidden
+		isNameInferred
+		sourceColumn: [Month_Number]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month_Name
+		dataType: string
+		lineageTag: b8c9d0e1-f2a3-4567-1234-678901234567
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month_Name]
+		sortByColumn: Month_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DateTable = calculated
+		mode: import
+		source =
+			ADDCOLUMNS(
+				CALENDAR(
+					DATE(YEAR(MIN('Calls'[Call_Date])), 1, 1),
+					DATE(YEAR(MAX('Calls'[Call_Date])), 12, 31)
+				),
+				"Year", YEAR([Date]),
+				"Month_Number", MONTH([Date]),
+				"Month_Name", FORMAT([Date], "MMM")
+			)
+
+	annotation PBI_Id = d4e5f6a7b8c90123def0234567890123

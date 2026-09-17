@@ -9,7 +9,7 @@ This roadmap executes a 1:1 functional clone and corporate sanitization of the r
 - [x] **Phase 1: Project Scaffolding & Corporate Sanitization Core** - Base repository structure, sanitization tokens, synthetic data generator, and vendor assets.
 - [x] **Phase 2: Companion Desktop Preprocessor & Parity Testing** - Pure Python transformation core, CLI/GUI pywebview shell, PyInstaller spec, and unit/parity test suites.
 - [x] **Phase 3: Client-Side Web Dashboard & Analytics** - Sanitized 4-tab dashboard UI, Chart.js visualizations, IndexedDB caching, ARIA accessibility, and NLP query sandbox.
-- [ ] **Phase 4: Power BI Export Engine & Structural Gates** - Programmatic TMDL/PBIR generator with duration-weighted DAX, drill-through page, and automated verification checks.
+- [x] **Phase 4: Power BI Export Engine & Structural Gates** - Programmatic TMDL/PBIR generator with duration-weighted DAX, drill-through page, and automated verification checks.
 - [ ] **Phase 5: Verification, Golden Parity Audit & Showcase Docs** - End-to-end testing, zero-leak sanitization audit, and production portfolio documentation.
 
 ## Phase Details
@@ -74,8 +74,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 04-01: Implement `powerbi.js` semantic model (TMDL) and report definitions (PBIR).
-- [ ] 04-02: Implement Power BI gate verification scripts and wire `package.json` test scripts.
+- [x] 04-01: Implement `powerbi.js` semantic model (TMDL) and report definitions (PBIR).
+- [x] 04-02: Implement Power BI gate verification scripts and wire `package.json` test scripts.
 
 ### Phase 5: Verification, Golden Parity Audit & Showcase Docs
 **Goal**: Perform final end-to-end sanitization verification, parity checks, and assemble the portfolio showcase README.
@@ -100,5 +100,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 1. Project Scaffolding & Corporate Sanitization Core | 2/2 | Completed | 2026-09-17 |
 | 2. Companion Desktop Preprocessor & Parity Testing | 2/2 | Completed | 2026-09-17 |
 | 3. Client-Side Web Dashboard & Analytics | 3/3 | Completed | 2026-09-17 |
-| 4. Power BI Export Engine & Structural Gates | 0/2 | Not started | - |
+| 4. Power BI Export Engine & Structural Gates | 2/2 | Completed | 2026-09-17 |
 | 5. Verification, Golden Parity Audit & Showcase Docs | 0/1 | Not started | - |

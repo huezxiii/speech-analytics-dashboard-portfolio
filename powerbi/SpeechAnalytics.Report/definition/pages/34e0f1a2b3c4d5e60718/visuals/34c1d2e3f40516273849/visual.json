@@ -1,0 +1,100 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "34c1d2e3f40516273849",
+  "position": {
+    "x": 24,
+    "y": 690,
+    "z": 21,
+    "width": 928,
+    "height": 374,
+    "tabOrder": 21
+  },
+  "visual": {
+    "visualType": "columnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "EmpathyBuckets"
+                    }
+                  },
+                  "Property": "Bucket_Label"
+                }
+              },
+              "queryRef": "EmpathyBuckets.Bucket_Label",
+              "nativeQueryRef": "Bucket_Label"
+            }
+          ],
+          "showAll": true
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calls"
+                    }
+                  },
+                  "Property": "Avg QA Score"
+                }
+              },
+              "queryRef": "Calls.Avg QA Score",
+              "nativeQueryRef": "Avg QA Score"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'OutsideEnd'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Linguistic Empathy Correlation'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
