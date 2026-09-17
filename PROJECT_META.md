@@ -1,12 +1,12 @@
 ---
 project_name: "speech-analytics-dashboard-portfolio"
 primary_language: "JavaScript"
-technologies: ["JavaScript", "Python", "Chart.js", "PapaParse", "JSZip", "pywebview", "PyInstaller", "Power BI", "TMDL", "IndexedDB"]
+technologies: ["JavaScript", "Python", "Chart.js", "PapaParse", "JSZip", "pywebview", "PyInstaller", "Power BI", "TMDL", "IndexedDB", "Netlify"]
 type: "PORTFOLIO"
 domain: "DATA-ANALYTICS"
 stage: "COMPLETE"
 stack: "JS-VANILLA"
-tags: ["speech-analytics", "dashboard", "white-label", "portfolio", "power-bi", "preprocessor", "tmdl", "pbir"]
+tags: ["speech-analytics", "dashboard", "white-label", "portfolio", "power-bi", "preprocessor", "tmdl", "pbir", "netlify"]
 ---
 
 # Project Overview
