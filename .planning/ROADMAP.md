@@ -1,4 +1,4 @@
-﻿# Roadmap: Speech Analytics & Customer Intelligence Dashboard (Sanitized Portfolio Edition)
+# Roadmap: Speech Analytics & Customer Intelligence Dashboard (Sanitized Portfolio Edition)
 
 ## Overview
 
@@ -6,7 +6,7 @@ This roadmap executes a 1:1 functional clone and corporate sanitization of the r
 
 ## Phases
 
-- [ ] **Phase 1: Project Scaffolding & Corporate Sanitization Core** - Base repository structure, sanitization tokens, synthetic data generator, and vendor assets.
+- [x] **Phase 1: Project Scaffolding & Corporate Sanitization Core** - Base repository structure, sanitization tokens, synthetic data generator, and vendor assets.
 - [ ] **Phase 2: Companion Desktop Preprocessor & Parity Testing** - Pure Python transformation core, CLI/GUI pywebview shell, PyInstaller spec, and unit/parity test suites.
 - [ ] **Phase 3: Client-Side Web Dashboard & Analytics** - Sanitized 4-tab dashboard UI, Chart.js visualizations, IndexedDB caching, ARIA accessibility, and NLP query sandbox.
 - [ ] **Phase 4: Power BI Export Engine & Structural Gates** - Programmatic TMDL/PBIR generator with duration-weighted DAX, drill-through page, and automated verification checks.
@@ -26,8 +26,8 @@ This roadmap executes a 1:1 functional clone and corporate sanitization of the r
 **Plans**: 2 plans
 
 Plans:
-- [ ] 01-01: Establish vendor dependencies, theme variables, and package.json/pytest environment.
-- [ ] 01-02: Implement sanitized synthetic call data generator (`generate_mock_data.py`).
+- [x] 01-01: Establish vendor dependencies, theme variables, and package.json/pytest environment.
+- [x] 01-02: Implement sanitized synthetic call data generator (`generate_mock_data.py`).
 
 ### Phase 2: Companion Desktop Preprocessor & Parity Testing
 **Goal**: Deliver desktop preprocessor application with clear Core/Shell separation, unit tests, and PyInstaller build spec.
@@ -97,7 +97,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Project Scaffolding & Corporate Sanitization Core | 0/2 | Not started | - |
+| 1. Project Scaffolding & Corporate Sanitization Core | 2/2 | Completed | 2026-09-17 |
 | 2. Companion Desktop Preprocessor & Parity Testing | 0/2 | Not started | - |
 | 3. Client-Side Web Dashboard & Analytics | 0/3 | Not started | - |
 | 4. Power BI Export Engine & Structural Gates | 0/2 | Not started | - |

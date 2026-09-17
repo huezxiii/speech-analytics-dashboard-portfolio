@@ -1,0 +1,21 @@
+{
+  "name": "speech-analytics-dashboard-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "Speech Analytics & Customer Intelligence Dashboard (Sanitized Portfolio Edition)",
+  "scripts": {
+    "check:cards": "node check-card-reference-labels.js",
+    "check:columns": "node check-column-consumers.js",
+    "check:compliance": "node check-compliance-page.js",
+    "check:date": "node check-date-dimension.js",
+    "check:drill": "node check-drillthrough.js",
+    "check:export": "node test-index-export.js",
+    "check:narrative": "node check-narrative-titles.js",
+    "check:pbi": "node check-powerbi-freshness.js",
+    "check:pop": "node check-pop-measures.js",
+    "check:target": "node check-target-lines.js",
+    "check:weighted": "node check-weighted-measures.js",
+    "test": "node test-powerbi.js"
+  }
+}
