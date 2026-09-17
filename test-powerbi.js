@@ -176,13 +176,13 @@ const task1ThemeStr = parsedThemeMap['powerbi/SpeechAnalytics.Report/StaticResou
 const theme = task1ThemeStr ? JSON.parse(task1ThemeStr) : { dataColors: [] };
 
 check('dataColors has eight slots', theme.dataColors ? theme.dataColors.length : 0, 8);
-check('dataColors slot 1 is forestgreen brand accent', theme.dataColors ? theme.dataColors[0] : null, '#48B040');
-check('dataColors slot 2 is tan secondary fill', theme.dataColors ? theme.dataColors[1] : null, '#DAC6AB');
+check('dataColors slot 1 is brand accent', theme.dataColors ? theme.dataColors[0] : null, '#0284C7');
+check('dataColors slot 2 is secondary accent', theme.dataColors ? theme.dataColors[1] : null, '#38BDF8');
 
 const divergingActual = [theme.maximum, theme.center, theme.minimum];
 const semanticActual = [theme.good, theme.neutral, theme.bad];
-const divergingExpected = ['#48B040', '#DAC6AB', '#89705D'];
-const semanticExpected = ['#48B040', '#C8C7CB', '#DAC6AB'];
+const divergingExpected = ['#0284C7', '#F59E0B', '#EF4444'];
+const semanticExpected = ['#10B981', '#94A3B8', '#EF4444'];
 check('diverging slots match Acme palette', divergingActual, divergingExpected);
 check('semantic slots match Acme palette', semanticActual, semanticExpected);
 
@@ -192,34 +192,32 @@ check('center is distinct from both minimum and maximum',
 const divergingAreColors = divergingActual.every(function(c) { return typeof c === 'string' && /^#[0-9A-F]{6}$/i.test(c); });
 check('diverging slots are colors, not numbers', divergingAreColors, true);
 
-const structuralExpected = { background: '#E3F1EA', firstLevelElements: '#171F1C', secondaryBackground: '#F8F8F8', tableAccent: '#48B040' };
+const structuralExpected = { background: '#020617', firstLevelElements: '#F8FAFC', secondaryBackground: '#0F172A', tableAccent: '#0284C7' };
 const structuralActual = { background: theme.background, firstLevelElements: theme.firstLevelElements, secondaryBackground: theme.secondaryBackground, tableAccent: theme.tableAccent };
-check('structural colors match the light theme specification', structuralActual, structuralExpected);
+check('structural colors match the dark theme specification', structuralActual, structuralExpected);
 
-check('theme.background is derived light canvas', theme.background, '#E3F1EA');
-check('theme.firstLevelElements is black', theme.firstLevelElements, '#171F1C');
-check('theme.secondaryBackground is whitesmoke card surface', theme.secondaryBackground, '#F8F8F8');
-check('theme.dataColors leading marks are forestgreen and tan', [theme.dataColors[0], theme.dataColors[1]], ['#48B040', '#DAC6AB']);
+check('theme.background is brand canvas', theme.background, '#020617');
+check('theme.firstLevelElements is text primary', theme.firstLevelElements, '#F8FAFC');
+check('theme.secondaryBackground is brand surface', theme.secondaryBackground, '#0F172A');
+check('theme.dataColors leading marks are accent and accentLight', [theme.dataColors[0], theme.dataColors[1]], ['#0284C7', '#38BDF8']);
 
 const textClassesOk = theme.textClasses && 
     Object.keys(theme.textClasses).sort().join(',') === 'callout,header,label,title' &&
     Object.keys(theme.textClasses).every(function(k) {
         const tc = theme.textClasses[k];
         const keys = Object.keys(tc).sort().join(',');
-        const colorOk = tc.color === '#171F1C' || tc.color === '#53463C';
+        const colorOk = tc.color === '#F8FAFC' || tc.color === '#94A3B8';
         return keys === 'color,fontSize' && colorOk && typeof tc.fontSize === 'number' && tc.fontSize >= 8 && tc.fontSize <= 60;
     });
 check('textClasses set size and color and no font family', textClassesOk, true);
 
-// Derived canvas matches computation (Task 3 requirement 4)
-check('derived canvas matches blendOverWhite calculation', c.PBI_CANVAS_BACKGROUND, c.blendOverWhite(c.ACME_TOKENS.honeydew, 128));
+// Canvas matches brand token
+check('canvas background matches brand token', c.PBI_CANVAS_BACKGROUND, c.ACME_TOKENS.canvas);
 
 // --- THEME-01/THEME-03: the theme palette must stay inside the brand, and stay row-independent ---
-// Plan 24-09 pruned the stale allowlist (historical blends, dark palette, retired derivations):
 const allowlist = [
-    '#48B040', '#F8F8F8', '#DAC6AB', '#171F1C', '#53463C', '#C8C7CB', '#89705D', '#C7E4D5', // 8 brand tokens
-    '#E3F1EA', // derived canvas: honeydew composited at 50% over white (blendOverWhite(ACME_TOKENS.honeydew, 128))
-    '#A79486', '#7E746D' // 2 active derivations (border/outline, axis/gridline)
+    '#0284C7', '#38BDF8', '#0EA5E9', '#818CF8', '#10B981', '#F59E0B', '#EF4444', '#94A3B8', // 8 dataColors
+    '#020617', '#0F172A', '#1E293B', '#334155', '#475569', '#64748B', '#F8FAFC' // brand tokens
 ];
 
 function collectColors(obj, found) {
@@ -304,7 +302,7 @@ const mapA = c.buildPowerBIFileMap([{ Timestamp: '2026-01-01', Primary_Category:
 const mapB = c.buildPowerBIFileMap([{ Timestamp: '2026-01-02', Primary_Category: 'B' }]);
 const dataColorsA = JSON.parse(mapA['powerbi/SpeechAnalytics.Report/StaticResources/RegisteredResources/AcmeTheme.json']).dataColors;
 const dataColorsB = JSON.parse(mapB['powerbi/SpeechAnalytics.Report/StaticResources/RegisteredResources/AcmeTheme.json']).dataColors;
-check('dataColors order is stable across repeated builds', JSON.stringify(dataColorsA) === JSON.stringify(dataColorsB) && dataColorsA[0] === '#48B040', true);
+check('dataColors order is stable across repeated builds', JSON.stringify(dataColorsA) === JSON.stringify(dataColorsB) && dataColorsA[0] === '#0284C7', true);
 
 // --- CsvFolderPath ships unset, and the M guards on the same sentinel ---
 // A "." default made "operator forgot to set it" and "path is wrong" produce an identical error.
@@ -739,7 +737,7 @@ if (textboxVisualJson.visual && textboxVisualJson.visual.objects && textboxVisua
     }
 }
 check('textbox text is Executive Hub', titleText, 'Executive Hub');
-check('textbox text color matches theme', titleColor, '#F8F8F8');
+check('textbox text color matches theme', titleColor, '#F8FAFC');
 check('textbox paragraph alignment is center', titleAlignment, 'center');
 
 let bandBackgroundColor = '';
@@ -757,7 +755,7 @@ if (textboxVisualJson.visual && textboxVisualJson.visual.visualContainerObjects 
         bandBackgroundTransparency = bgProps.transparency.expr.Literal.Value;
     }
 }
-check('textbox band background color is forestgreen', bandBackgroundColor, "'#48B040'");
+check('textbox band background color is brand slate', bandBackgroundColor, "'#0F172A'");
 check('textbox band background show is true', bandBackgroundShow, "true");
 check('textbox band background transparency is 0D', bandBackgroundTransparency, "0D");
 
